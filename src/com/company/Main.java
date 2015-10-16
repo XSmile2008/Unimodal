@@ -11,7 +11,7 @@ public class Main {
         dihotomiya(-3, 1, 0.1, 0.1/3.);
         goldenCut(-3, 1, 0.01);
         goldenCutM(-3, 1, 0.01);
-        fibonachiM(-3, 1, 0.01);
+        fibonacciM(-3, 1, 0.01);
         parabols(-10, 1, .01);
     }
 
@@ -19,7 +19,7 @@ public class Main {
         return 3*x*x*x*x + 5*x*x*x - 10*x*x + 6*x;
     }
 
-    static int fibonachi(int n) {
+    static int fibonacci(int n) {
         int f_2 = 1;
         int f_1 = 1;
         int f = 1;
@@ -166,7 +166,6 @@ public class Main {
         fk = 0;
         double u = 0, v = 0, fu = 0, fv = 0, xs = 0, fs = 0;
         do {
-            k++;
             if (u >= v) {//step4
                 u = a + (3 - Math.sqrt(5)) / 2 * (b - a);//step1
                 v = a + b - u;
@@ -174,7 +173,6 @@ public class Main {
                 fv = f(v);
                 fk += 2;
             }
-
             if (fu <= fv) {//step 2
                 b = v;
                 xs = u;
@@ -192,16 +190,17 @@ public class Main {
                 v = a + b - u;
                 fv = f(v);
             }
+            k++;
             fk++;
         } while (b - a >= e);
         System.out.println("xs = " + xs + " f(xs) = " + fs);
         System.out.println("k = " + k + " fk = " + fk);
     }
 
-    static void fibonachiM(double a, double b, double e) {
-        System.out.println("\nfibonachiM(" + a + ", " + b + ", " + e + ")");//step5
+    static void fibonacciM(double a, double b, double e) {
+        System.out.println("\nfibonacciM(" + a + ", " + b + ", " + e + ")");//step5
         int n = 0;
-        do n++; while ((b - a)/fibonachi(n + 2) >= e);
+        do n++; while ((b - a)/ fibonacci(n + 2) >= e);
 
         double u = 0, v = 0;
         double fu = 0, fv = 0;
@@ -210,12 +209,12 @@ public class Main {
         fk = 0;
         for (k = 1; k <= n; k++) {
             if (u >= v) {
-                u = a + ((double) fibonachi(n - k + 1))/(double)(fibonachi(n - k + 3)) * (b - a);//step1
+                u = a + ((double) fibonacci(n - k + 1))/(double)(fibonacci(n - k + 3)) * (b - a);//step1
                 v = a + b - u;
                 fu = f(u);
                 fv = f(v);
+                fk += 2;
             }
-
             if (fu <= fv) {//step 2
                 b = v;
                 xs = u;
