@@ -37,17 +37,17 @@ public class Main {
         double X;
         double fX;
         x[0] = x0;
-        fx[0] = f(x[0]);
+        fx[0] = f(x[0]); fk++;
 
         do {
             X = x[0] + h;//step0
-            fX = f(X);
+            fX = f(X); fk++;
             if (fX <= fx[0]) {//step1
                 x[1] = X;
                 fx[1] = fX;
             } else {
                 X = x[0] - h;//step2
-                fX = f(X);
+                fX = f(X); fk++;
                 if (fX <= fx[0]) {//step3
                     h = -h;
                     x[1] = X;
@@ -56,19 +56,19 @@ public class Main {
                     System.out.println("x = " + X + "\nf(x) = " + fX);//TODO
                     double[][] r = new double[2][]; r[0] = x; r[1] = fx;
                     return r;
-                } else h = h / 2;//step4
+                } else h /= 2;//step4
             }
         } while (fX > fx[0]);
 
         x[2] = x[1] + h;//step5
-        fx[2] = f(x[2]);
+        fx[2] = f(x[2]); fk++;
         while (fx[2] <= fx[1]) {
             x[0] = x[1];
             fx[0] = fx[1];
             x[1] = x[2];
             fx[1] = fx[2];
             x[2] = x[1] + h;//step5
-            fx[2] = f(x[2]);
+            fx[2] = f(x[2]); fk++;
         }
 
         if (h < 0) {//swap
@@ -260,12 +260,10 @@ public class Main {
                     / ((x[2] - x[1]) * (fx[0] - fx[1]) + (x[1] - x[0]) * (fx[2] - fx[1])));
             double fxs = f(xs);
             k++; fk++;
-            System.out.println("k = " + k + " xs = " + xs + " f(xs) = " + fxs);
-
+            //System.out.println("k = " + k + " xs = " + xs + " f(xs) = " + fxs);
             if (Math.abs(xs - x[1]) < e) {
-                double xz = xs;
-                double fxz = fxs;
-                System.out.println("x^* = " + xz + " f(x^*) = " + fxz);
+                System.out.println("x^* = " + xs + " f(x^*) = " + fxs);
+                System.out.println("k = " + k + " fk = " + fk);
                 return;
             } else if (xs > x[1]) {
                 //x[3] = x[2];
