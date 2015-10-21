@@ -8,10 +8,6 @@ public class Optimization1d {
     static private int k;
     static private int fk;
 
-    static double f(double x) {
-        return 3*x*x*x*x + 5*x*x*x - 10*x*x + 6*x;
-    }
-
     static int fibonacci(int n) {
         int f_2 = 1;
         int f_1 = 1;
@@ -24,23 +20,23 @@ public class Optimization1d {
         return f;
     }
 
-    static double[][] localization(double x0, double h, double e) {
+    static double[][] localization(Function f, double x0, double h, double e) {
         double[] x = new double[3];
         double[] fx = new double[3];
         double X;
         double fX;
         x[0] = x0;
-        fx[0] = f(x[0]); fk++;
+        fx[0] = f.calc(x[0]); fk++;
 
         do {
             X = x[0] + h;//step0
-            fX = f(X); fk++;
+            fX = f.calc(X); fk++;
             if (fX <= fx[0]) {//step1
                 x[1] = X;
                 fx[1] = fX;
             } else {
                 X = x[0] - h;//step2
-                fX = f(X); fk++;
+                fX = f.calc(X); fk++;
                 if (fX <= fx[0]) {//step3
                     h = -h;
                     x[1] = X;
@@ -54,14 +50,14 @@ public class Optimization1d {
         } while (fX > fx[0]);
 
         x[2] = x[1] + h;//step5
-        fx[2] = f(x[2]); fk++;
+        fx[2] = f.calc(x[2]); fk++;
         while (fx[2] <= fx[1]) {
             x[0] = x[1];
             fx[0] = fx[1];
             x[1] = x[2];
             fx[1] = fx[2];
             x[2] = x[1] + h;//step5
-            fx[2] = f(x[2]); fk++;
+            fx[2] = f.calc(x[2]); fk++;
         }
 
         if (h < 0) {//swap
@@ -82,7 +78,7 @@ public class Optimization1d {
         return r;
     }
 
-    static void dihotomiya(double a, double b, double e, double d) {
+    static void dihotomiya(Function f, double a, double b, double e, double d) { // d = e/3
         System.out.println("\ndihotomiya(" + a + ", " + b + ", " + e + ", " + d + ")");
         k = 0;
         double xs;
@@ -97,8 +93,8 @@ public class Optimization1d {
 
             x1 = (a + b - d) / 2.;//step1
             x2 = (a + b + d) / 2.;
-            f1 = f(x1);
-            f2 = f(x2);
+            f1 = f.calc(x1);
+            f2 = f.calc(x2);
 
             if (f1 <= f2) {
                 b = x2;
@@ -111,19 +107,19 @@ public class Optimization1d {
             }
 
         } while (b - a >= e);
-        double fk = k * 2;
+        fk = k * 2;
         System.out.println("finish");
         System.out.println("a = " + a + " b = " + b);
         System.out.println("x = " + xs + " f(x) = " + fs);
         System.out.println("k = " + k + " fk = " + fk);
     }
 
-    static void goldenCut(double a, double b, double e) {
+    static void goldenCut(Function f, double a, double b, double e) {
         System.out.println("\ngoldenCut(" + a + ", " + b + ", " + e + ")");//step4
         double u = a + (3 - Math.sqrt(5))/2 * (b - a);//step1
         double v = a + b - u;
-        double fu = f(u);
-        double fv = f(v);
+        double fu = f.calc(u);
+        double fv = f.calc(v);
         double xs = 0;
         double fs = 0;
 
@@ -137,7 +133,7 @@ public class Optimization1d {
                 v = u;
                 fv = fu;
                 u = a + b - v;
-                fu = f(u);
+                fu = f.calc(u);
             } else {
                 a = u;
                 xs = v;
@@ -145,7 +141,7 @@ public class Optimization1d {
                 u = v;
                 fu = fv;
                 v = a + b - u;
-                fv = f(v);
+                fv = f.calc(v);
             }
         } while (b - a >= e);//step3
         fk = k + 2;
@@ -153,7 +149,7 @@ public class Optimization1d {
         System.out.println("k = " + k + " fk = " + fk);
     }
 
-    static void goldenCutM(double a, double b, double e) {
+    static void goldenCutM(Function f, double a, double b, double e) {
         System.out.println("\ngoldenCutM(" + a + ", " + b + ", " + e + ")");//step5
         k = 0;
         fk = 0;
@@ -162,8 +158,8 @@ public class Optimization1d {
             if (u >= v) {//step4
                 u = a + (3 - Math.sqrt(5)) / 2 * (b - a);//step1
                 v = a + b - u;
-                fu = f(u);
-                fv = f(v);
+                fu = f.calc(u);
+                fv = f.calc(v);
                 fk += 2;
             }
             if (fu <= fv) {//step 2
@@ -173,7 +169,7 @@ public class Optimization1d {
                 v = u;
                 fv = fu;
                 u = a + b - v;
-                fu = f(u);
+                fu = f.calc(u);
             } else {
                 a = u;
                 xs = v;
@@ -181,7 +177,7 @@ public class Optimization1d {
                 u = v;
                 fu = fv;
                 v = a + b - u;
-                fv = f(v);
+                fv = f.calc(v);
             }
             k++;
             fk++;
@@ -190,7 +186,7 @@ public class Optimization1d {
         System.out.println("k = " + k + " fk = " + fk);
     }
 
-    static void fibonacciM(double a, double b, double e) {
+    static void fibonacciM(Function f, double a, double b, double e) {
         System.out.println("\nfibonacciM(" + a + ", " + b + ", " + e + ")");//step5
         int n = 0;
         do n++; while ((b - a)/ fibonacci(n + 2) >= e);
@@ -204,8 +200,8 @@ public class Optimization1d {
             if (u >= v) {
                 u = a + ((double) fibonacci(n - k + 1))/(double)(fibonacci(n - k + 3)) * (b - a);//step1
                 v = a + b - u;
-                fu = f(u);
-                fv = f(v);
+                fu = f.calc(u);
+                fv = f.calc(v);
                 fk += 2;
             }
             if (fu <= fv) {//step 2
@@ -216,7 +212,7 @@ public class Optimization1d {
                 fv = fu;
                 u = a + b - v;
                 if (u < v) {
-                    fu = f(u);
+                    fu = f.calc(u);
                     fk++;
                 }
             } else {
@@ -227,7 +223,7 @@ public class Optimization1d {
                 fu = fv;
                 v = a + b - u;
                 if (u < v) {
-                    fv = f(v);
+                    fv = f.calc(v);
                     fk++;
                 }
             }
@@ -239,13 +235,13 @@ public class Optimization1d {
         System.out.println("fk = " + fk);
     }
 
-    static void parabols(double x0, double h, double e) {
+    static void parabols(Function f, double x0, double h, double e) {
     //static void parabols(double x0, double a, double b, double e) {
         System.out.println("\nparabols(" + x0 + ", " + h + ", " + e + ")");
         k = 0;
         fk = 0;
 
-        double[][] xfx = localization(x0, h, e);
+        double[][] xfx = localization(f, x0, h, e);
         double[] x = xfx[0];
         double[] fx = xfx[1];
         double x3, fx3;
@@ -253,7 +249,7 @@ public class Optimization1d {
         while (true) {
             double xs = x[1] + (1 / 2.) * (((x[2] - x[1]) * (x[2] - x[1]) * (fx[0] - fx[1]) - (x[1] - x[0]) * (x[1] - x[0]) * (fx[2] - fx[1]))
                     / ((x[2] - x[1]) * (fx[0] - fx[1]) + (x[1] - x[0]) * (fx[2] - fx[1])));
-            double fxs = f(xs);
+            double fxs = f.calc(xs);
             k++; fk++;
             //System.out.println("k = " + k + " xs = " + xs + " f(xs) = " + fxs);
             if (Math.abs(xs - x[1]) < e) {

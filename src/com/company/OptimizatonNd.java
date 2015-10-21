@@ -21,9 +21,21 @@ public class OptimizatonNd {
         return new double[]{-fsx0(x), -fsx1(x)};
     }
 
+    private static double norm(double g[]) {
+        double sum  = 0;
+        for (double d : g) sum += d*d;
+        return Math.sqrt(sum);
+    }
+
     public static void gradientDescent(double[] x0, double e) {
         k = 0;
         double fx0 = f(x0);
+        double[] ug = ungradient(x0);
+        if (norm(ug) < e) {
+            return;
+        }
+
+
 
     }
 }
