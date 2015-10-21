@@ -240,6 +240,7 @@ public class Optimization1d {
     }
 
     static void parabols(double x0, double h, double e) {
+    //static void parabols(double x0, double a, double b, double e) {
         System.out.println("\nparabols(" + x0 + ", " + h + ", " + e + ")");
         k = 0;
         fk = 0;
@@ -247,6 +248,7 @@ public class Optimization1d {
         double[][] xfx = localization(x0, h, e);
         double[] x = xfx[0];
         double[] fx = xfx[1];
+        double x3, fx3;
 
         while (true) {
             double xs = x[1] + (1 / 2.) * (((x[2] - x[1]) * (x[2] - x[1]) * (fx[0] - fx[1]) - (x[1] - x[0]) * (x[1] - x[0]) * (fx[2] - fx[1]))
@@ -260,19 +262,33 @@ public class Optimization1d {
                 return;
             } else if (xs > x[1]) {
                 //x[3] = x[2];
+                x3 = x[2];
                 x[2] = xs;
 
                 //fx[3] = fx[2];
+                fx3 = fx[2];
                 fx[2] = fxs;
             } else {
                 //x[3] = x[2];
+                x3 = x[2];
                 x[2] = x[1];
                 x[1] = xs;
 
                 //fx[3] = fx[2];
+                fx3 = fx[2];
                 fx[2] = fx[1];
                 fx[1] = fxs;
             }
+
+            if (fx[1]>fx[2]) {
+                x[0] = x[1];
+                x[1] = x[2];
+                x[2] = x3;
+                fx[0] = fx[1];
+                fx[1] = fx[2];
+                fx[2] = fx3;
+            }
+
         }
     }
 
