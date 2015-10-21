@@ -11,9 +11,19 @@ public class OptimizatonNd {
     private static double f(double x[]) {
         return 10*x[0]*x[0] + 4*x[0]*x[1] + x[1]*x[1] - 2*x[0] + x[1];
     }
+    private static double fsx0(double x[]) {
+        return 18 + 4*x[1];//TODO: verify
+    }
+    private static double fsx1(double x[]) {
+        return 4*x[0] + 2 + 1;//TODO: verify
+    }
+    private static double[] ungradient(double x[]) {//-gradient
+        return new double[]{-fsx0(x), -fsx1(x)};
+    }
 
-    public static void gradientDescent(double e) {
-        double[] x0 = {0, 0};
+    public static void gradientDescent(double[] x0, double e) {
+        k = 0;
+        double fx0 = f(x0);
 
     }
 }
