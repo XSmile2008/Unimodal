@@ -3,7 +3,8 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        optimization1d();
+        //optimization1d();
+        optimizationNd();
     }
 
     private static void optimization1d() {
@@ -20,7 +21,18 @@ public class Main {
         Optimization1d.goldenCut(f, a, b, e);
         Optimization1d.goldenCutM(f, a, b, e);
         Optimization1d.fibonacciM(f, a, b, e);
-        Optimization1d.parabols(f, a, h, e);
+        Optimization1d.parabolas(f, a, h, e);
+    }
+
+    private static void optimizationNd() {
+        Function f = x -> 10*x[0]*x[0] + 4*x[0]*x[1] + x[1]*x[1] - 2*x[0] + x[1];
+        Function[] derivatives = {
+                x -> 20*x[0] + 4*x[1] - 2,
+                x -> 4*x[0] + 2*x[0] + 1
+        };
+        double[] x0 = {0, 0};
+        double e = 0.0001;
+        OptimizatonNd.gradientDescent(f, derivatives, x0, e);
     }
 
 }

@@ -78,15 +78,12 @@ public class Optimization1d {
         return r;
     }
 
-    static void dihotomiya(Function f, double a, double b, double e, double d) { // d = e/3
+    static double[] dihotomiya(Function f, double a, double b, double e, double d) { // d = e/3
         System.out.println("\ndihotomiya(" + a + ", " + b + ", " + e + ", " + d + ")");
         k = 0;
-        double xs;
-        double fs;
-        double x1;
-        double x2;
-        double f1;
-        double f2;
+        double xs, fs;
+        double x1, f1;
+        double x2, f2;
 
         do {
             k++;
@@ -112,9 +109,10 @@ public class Optimization1d {
         System.out.println("a = " + a + " b = " + b);
         System.out.println("x = " + xs + " f(x) = " + fs);
         System.out.println("k = " + k + " fk = " + fk);
+        return  new double[] {xs, fs};
     }
 
-    static void goldenCut(Function f, double a, double b, double e) {
+    static double[] goldenCut(Function f, double a, double b, double e) {
         System.out.println("\ngoldenCut(" + a + ", " + b + ", " + e + ")");//step4
         double u = a + (3 - Math.sqrt(5))/2 * (b - a);//step1
         double v = a + b - u;
@@ -147,9 +145,10 @@ public class Optimization1d {
         fk = k + 2;
         System.out.println("xs = " + xs + " f(xs) = " + fs);
         System.out.println("k = " + k + " fk = " + fk);
+        return  new double[] {xs, fs};
     }
 
-    static void goldenCutM(Function f, double a, double b, double e) {
+    static double[] goldenCutM(Function f, double a, double b, double e) {
         System.out.println("\ngoldenCutM(" + a + ", " + b + ", " + e + ")");//step5
         k = 0;
         fk = 0;
@@ -184,9 +183,10 @@ public class Optimization1d {
         } while (b - a >= e);
         System.out.println("xs = " + xs + " f(xs) = " + fs);
         System.out.println("k = " + k + " fk = " + fk);
+        return  new double[] {xs, fs};
     }
 
-    static void fibonacciM(Function f, double a, double b, double e) {
+    static double[] fibonacciM(Function f, double a, double b, double e) {
         System.out.println("\nfibonacciM(" + a + ", " + b + ", " + e + ")");//step5
         int n = 0;
         do n++; while ((b - a)/ fibonacci(n + 2) >= e);
@@ -233,11 +233,12 @@ public class Optimization1d {
         System.out.println("f(xs) = " + fs);
         System.out.println("k = " + k);
         System.out.println("fk = " + fk);
+        return  new double[] {xs, fs};
     }
 
-    static void parabols(Function f, double x0, double h, double e) {
-    //static void parabols(double x0, double a, double b, double e) {
-        System.out.println("\nparabols(" + x0 + ", " + h + ", " + e + ")");
+    static double[] parabolas(Function f, double x0, double h, double e) {
+    //static void parabolas(double x0, double a, double b, double e) {
+        System.out.println("\nparabolas(" + x0 + ", " + h + ", " + e + ")");
         k = 0;
         fk = 0;
 
@@ -255,7 +256,7 @@ public class Optimization1d {
             if (Math.abs(xs - x[1]) < e) {
                 System.out.println("x^* = " + xs + " f(x^*) = " + fxs);
                 System.out.println("k = " + k + " fk = " + fk);
-                return;
+                return  new double[] {xs, fxs};
             } else if (xs > x[1]) {
                 //x[3] = x[2];
                 x3 = x[2];
