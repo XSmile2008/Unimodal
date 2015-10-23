@@ -9,7 +9,6 @@ public class OptimizatonNd {
     static double fk;
 
     private static double[] ungradient(double[] x, Function[] fs) {//-gradient
-        //return new double[]{- fs[0].calc(x), - fs[1].calc(x)};//TODO: remove
         double[] ug = new double[fs.length];
         for (int i = 0; i < fs.length; i++) ug[i] = - fs[i].calc(x);
         return ug;
@@ -21,7 +20,7 @@ public class OptimizatonNd {
         return Math.sqrt(sum);
     }
 
-    public static void gradientDescent(Function f, Function[] fs, double[] x0, double e) {
+    public static double[][] gradientDescent(Function f, Function[] fs, double[] x0, double e) {
         k = 0;
         double[] x = x0;//TODO: remove
         double fx = f.calc(x0);
@@ -32,23 +31,21 @@ public class OptimizatonNd {
 
             double[] ug = ungradient(x, fs);//step0
             if (norm(ug) < e || nx < e) {
-                return;
+                double[][] r = new double[2][]; r[0] = x; r[1] = new double[] {f.calc(x)};
+                return r;
             }
 
             double[] h = new double[x.length];
             for (int i = 0; i < h.length; i++) {
-                Function[] func_j = new Function[x.length];
-                for (int j = 0; j < func_j.length; j++) {
-                    final int fj = j;
-                    if (i == j) func_j[j] = hi -> x[fj] - hi[0] * ug[fj];
-                    else func_j[j] = hi -> x[fj] - h[fj] * ug[fj];
-                }
-                Function func_i = hi -> {
+                final int fi = i;
+                Function func = hi -> {
                     double[] doubles = new double[x.length];
-                    for (int j = 0; j < x.length; j++) doubles[j] = func_j[j].calc(hi);
+                    for (int j = 0; j < x.length; j++)
+                        if (fi == j) doubles[j] = x[j] - hi[0] * ug[j];
+                        else doubles[j] = x[j] - h[j] * ug[j];
                     return f.calc(doubles);
                 };
-                h[i] = Optimization1d.parabolas(func_i, x[0], 1, e)[0];
+                h[i] = Optimization1d.parabolas(func, x[0], 1, e)[0];
             }
 
             /*Function nyan0 = h0 -> f.calc(x[0] - h0[0] * ug[0], x[1] - h[1] * ug[1]);
