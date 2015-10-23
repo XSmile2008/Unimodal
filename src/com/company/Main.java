@@ -11,7 +11,7 @@ public class Main {
         System.out.println("3*x^4 + 5*x^3 - 10*x^2 + 6*x");
         System.out.println("true min is in -2.13863332262411 and = -44.7195867483370");
 
-        Function f = x -> 3*x[0]*x[0]*x[0]*x[0] + 5*x[0]*x[0]*x[0] - 10*x[0]*x[0] + 6*x[0];
+        Function f = x -> 3 * x[0] * x[0] * x[0] * x[0] + 5 * x[0] * x[0] * x[0] - 10 * x[0] * x[0] + 6 * x[0];
         double a = -4;
         double b = 2;
         double e = 0.0001;
@@ -25,6 +25,9 @@ public class Main {
     }
 
     private static void optimizationNd() {
+        /*
+        http://www.wolframalpha.com/input/?i=minimize+10*x%5E2+%2B+4*x*y+%2B+y%5E2+-+2*x+%2B+y
+        */
         Function f = x -> 10*x[0]*x[0] + 4*x[0]*x[1] + x[1]*x[1] - 2*x[0] + x[1];
         Function[] derivatives = {
                 x -> 20*x[0] + 4*x[1] - 2,

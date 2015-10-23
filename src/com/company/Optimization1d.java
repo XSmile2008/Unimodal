@@ -70,9 +70,9 @@ public class Optimization1d {
             fx[2] = temp;
         }
 
-        System.out.println("x0 = " + x[0] + " f(x0) = " + fx[0]);
+        /*System.out.println("x0 = " + x[0] + " f(x0) = " + fx[0]);
         System.out.println("x1 = " + x[1] + " f(x1) = " + fx[1]);
-        System.out.println("x2 = " + x[2] + " f(x2) = " + fx[2]);
+        System.out.println("x2 = " + x[2] + " f(x2) = " + fx[2]);*/
 
         double[][] r = new double[2][]; r[0] = x; r[1] = fx;
         return r;
@@ -238,7 +238,7 @@ public class Optimization1d {
 
     static double[] parabolas(Function f, double x0, double h, double e) {
     //static void parabolas(double x0, double a, double b, double e) {
-        System.out.println("\nparabolas(" + x0 + ", " + h + ", " + e + ")");
+        //System.out.println("\nparabolas(" + x0 + ", " + h + ", " + e + ")");
         k = 0;
         fk = 0;
 
@@ -252,10 +252,9 @@ public class Optimization1d {
                     / ((x[2] - x[1]) * (fx[0] - fx[1]) + (x[1] - x[0]) * (fx[2] - fx[1])));
             double fxs = f.calc(xs);
             k++; fk++;
-            //System.out.println("k = " + k + " xs = " + xs + " f(xs) = " + fxs);
             if (Math.abs(xs - x[1]) < e) {
-                System.out.println("x^* = " + xs + " f(x^*) = " + fxs);
-                System.out.println("k = " + k + " fk = " + fk);
+                //System.out.println("x^* = " + xs + " f(x^*) = " + fxs);
+                //System.out.println("k = " + k + " fk = " + fk);
                 return  new double[] {xs, fxs};
             } else if (xs > x[1]) {
                 //x[3] = x[2];
