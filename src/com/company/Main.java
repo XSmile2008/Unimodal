@@ -8,6 +8,7 @@ public class Main {
     }
 
     private static void optimization1d() {
+        System.out.println("http://goo.gl/OWuKiS");
         System.out.println("3*x^4 + 5*x^3 - 10*x^2 + 6*x");
         System.out.println("true min is in -2.13863332262411 and = -44.7195867483370");
 
@@ -25,9 +26,9 @@ public class Main {
     }
 
     private static void optimizationNd() {
-        /*
-        http://www.wolframalpha.com/input/?i=minimize+10*x%5E2+%2B+4*x*y+%2B+y%5E2+-+2*x+%2B+y
-        */
+        System.out.println("http://goo.gl/xqiHfB");
+        System.out.println("10*x^2 + 4*x*y + y^2 - 2*x + y");
+        System.out.println("true min is in (1/3; -7/6) and = -11/12");
         Function f = x -> 10*x[0]*x[0] + 4*x[0]*x[1] + x[1]*x[1] - 2*x[0] + x[1];
         Function[] derivatives = {
                 x -> 20*x[0] + 4*x[1] - 2,

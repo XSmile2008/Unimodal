@@ -37,7 +37,6 @@ public class OptimizatonNd {
 
             double[] h = new double[x.length];
             for (int i = 0; i < h.length; i++) {
-                final int fi = i;
                 Function[] func_j = new Function[x.length];
                 for (int j = 0; j < func_j.length; j++) {
                     final int fj = j;
