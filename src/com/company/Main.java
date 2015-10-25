@@ -37,6 +37,7 @@ public class Main {
         double[] x0 = {0, 0};
         double e = 0.0001;
         OptimizatonNd.gradientDescent(f, derivatives, x0, e);
+        OptimizatonNd.Gauss_Seidel(f, x0, e);
     }
 
 }
