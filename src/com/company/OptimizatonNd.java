@@ -22,8 +22,8 @@ public class OptimizatonNd {
         return Math.sqrt(sum);
     }
 
-    public static double[][] gradientDescent(Function f, Function[] fs, double[] x0, double e) {
-        System.err.println("\ngradientDescent(" + f + ", " + fs + ", " + Arrays.toString(x0) + ", " + e + ")");
+    public static double[][] gradientDescent(Function f, Function[] fs, final double[] x0, double e) {
+        System.out.println("\ngradientDescent(" + f + ", " + fs + ", " + Arrays.toString(x0) + ", " + e + ")");
         k = 0;
         double[] x = Arrays.copyOf(x0, x0.length);
         double nx = e;//norm(x^(k+1) - x^k)
@@ -40,21 +40,12 @@ public class OptimizatonNd {
             for (int i = 0; i < h.length; i++) {
                 final int fi = i;
                 Function func = hi -> {
-                    double[] args = new double[x.length];
-                    for (int j = 0; j < x.length; j++)
-                        if (fi == j) args[j] = x[j] - hi[0] * ug[j];
-                        else args[j] = x[j] - h[j] * ug[j];
+                    double[] args = Arrays.copyOf(x, x.length);
+                    args[fi] = x[fi] - hi[0] * ug[fi];
                     return f.calc(args);
                 };
-                //h[i] = Optimization1d.parabolas(func, x[0], 1, e)[0];//TODO: check x[0] for hi
-                h[i] = Optimization1d.parabolas(func, 0, 1, e)[0];
+                h[i] = Optimization1d.parabolas(func, 0, 1, e)[0];//TODO: check x[0] for hi∂
             }
-
-            /*Function nyan0 = h0 -> f.calc(x[0] - h0[0] * ug[0], x[1] - h[1] * ug[1]);
-            h[0] = Optimization1d.parabolas(nyan0, x[0], 1, e)[0];
-
-            Function nyan1 = h1 -> f.calc(x[0] - h[0] * ug[0], x[1] - h1[0] * ug[1]);
-            h[1] = Optimization1d.parabolas(nyan1, x[1], 1, e)[0];*/
 
             double[] delta = new double[x.length];
             for (int i = 0; i < x.length; i++) delta[i] = x[i] - (x[i] - h[i] * ug[i]);
@@ -62,38 +53,38 @@ public class OptimizatonNd {
 
             for (int i = 0; i < x.length; i++) x[i] -= h[i] * ug[i];//TODO: can be moved into h minimization loop
             System.out.println("\nk = " + k + " -----------------------------------");
-            System.out.println("f(x^k = )" + f.calc(x));
+            System.out.println("ug = " + Arrays.toString(ug));
+            System.out.println("h = " + Arrays.toString(h));
+            System.out.println("f(x^(k + 1) = )" + f.calc(x));
+            System.out.println("x^(k + 1) = " + Arrays.toString(x));
             System.out.println("norm(x^(k+1) - x^k) = " + nx);
         }
     }
 
     public static void Gauss_Seidel(Function f, double[] x0, double e) {
-        System.err.println("\nGauss_Seidel(" + f + ", " + Arrays.toString(x0) + ", " + e + ")");
+        System.out.println("\nGauss_Seidel(" + f + ", " + Arrays.toString(x0) + ", " + e + ")");
         k = 0;
         double[] x = Arrays.copyOf(x0, x0.length);
         double fx = f.calc(x);
         int[] sign = new int[x.length];
         for (int i = 0; i < x.length; i++) sign[i] = 1;
-        double nx = e;//norm(x^(k+1) - x^k)
+        double nx = e;//norm(x^(k + 1) - x^k)
         double[] delta = new double[x.length];
         while (nx >= e) {//external step x^(k_)
             k++;
             for (int j = 0; j < x.length; j++) {//internal step for all x^(kj)
                 final int fj = j;
-                double[] args = new double[x.length];
 
-                for (int l = 0; l < x.length; l++)//find sign (e or -e)
-                    if (fj == l) args[l] = x[l] + sign[l] * e;
-                    else args[l] = x[l];
+                double[] args = Arrays.copyOf(x, x.length);//check sign[j]
+                args[j] = x[j] + sign[j] * e;
                 if (f.calc(args) > fx) sign[fj] *= -1;//if wrong way reverse
 
                 Function func = hj -> {
-                    for (int l = 0; l < x.length; l++)
-                        if (fj == l) args[l] = x[l] + hj[0] * sign[l] * e;
-                        else args[l] = x[l];
-                    return f.calc(args);
+                    double[] doubles = Arrays.copyOf(x, x.length);
+                    doubles[fj] = x[fj] + hj[0] * sign[fj] * e;
+                    return f.calc(doubles);
                 };
-                double h = Optimization1d.localization(func, x[0], 1, e)[0][0];
+                double h = Optimization1d.parabolas(func, x[0], 1, e)[0];
                 double temp = x[j];
                 x[j] = x[j] + h * sign[j] * e;//calc x^(kj + 1)
                 fx = f.calc(x);
@@ -104,5 +95,9 @@ public class OptimizatonNd {
             System.out.println("f(x^k = )" + f.calc(x));
             System.out.println("norm(x^(k+1) - x^k) = " + nx);
         }
+    }
+
+    public static void classicNewton(Function f, Function[] fs, Function[][] fss, double[] x0, double e) {
+        double[] x = Arrays.copyOf(x0, x0.length);
     }
 }
