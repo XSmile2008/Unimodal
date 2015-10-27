@@ -45,6 +45,7 @@ public class Main {
         OptimizatonNd.gradientDescent(f, derivatives, x0, e);
         OptimizatonNd.Gauss_Seidel(f, x0, e);
         OptimizatonNd.classicNewton(f, derivatives, derivatives2, x0, e);
+        OptimizatonNd.generalizedNewton(f, derivatives, derivatives2, x0, e);
     }
 
 }

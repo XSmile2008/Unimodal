@@ -42,6 +42,12 @@ public class Optimization1d {
                     x[1] = X;
                     fx[1] = fX;
                 } else if (Math.abs(h) < e / 2.) {
+                    x[1] = x[0];
+                    fx[1] = fx[0];
+                    x[2] = x[0] + h;
+                    fx[2] = f.calc(x[2]);
+                    x[0] -= h;
+                    fx[0] = f.calc(x[0]);
                     System.out.println("x = " + X + "\nf(x) = " + fX);//TODO
                     double[][] r = new double[2][]; r[0] = x; r[1] = fx;
                     return r;
@@ -51,7 +57,7 @@ public class Optimization1d {
 
         x[2] = x[1] + h;//step5
         fx[2] = f.calc(x[2]); fk++;
-        while (fx[2] <= fx[1]) {
+        while (fx[2] <= fx[1]) {//TODO: not working at this place
             x[0] = x[1];
             fx[0] = fx[1];
             x[1] = x[2];
