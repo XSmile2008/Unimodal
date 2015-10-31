@@ -5,8 +5,8 @@ package com.company;
  */
 public class Optimization1d {
 
-    static private int k;
-    static private int fk;
+    static public int k;
+    static public int fk;
 
     static int fibonacci(int n) {
         int f_2 = 1;
@@ -41,29 +41,23 @@ public class Optimization1d {
                     h = -h;
                     x[1] = X;
                     fx[1] = fX;
-                } else if (Math.abs(h) < e / 2.) {
-                    x[1] = x[0];
-                    fx[1] = fx[0];
-                    x[2] = x[0] + h;
-                    fx[2] = f.calc(x[2]);
-                    x[0] -= h;
-                    fx[0] = f.calc(x[0]);
-                    System.out.println("x = " + X + "\nf(x) = " + fX);//TODO
-                    double[][] r = new double[2][]; r[0] = x; r[1] = fx;
-                    return r;
                 } else h /= 2;//step4
             }
-        } while (fX > fx[0]);
+        } while (fX > fx[0] && Math.abs(h) >= e / 2.);
 
-        x[2] = x[1] + h;//step5
-        fx[2] = f.calc(x[2]); fk++;
-        while (fx[2] <= fx[1]) {//TODO: not working at this place
-            x[0] = x[1];
-            fx[0] = fx[1];
-            x[1] = x[2];
-            fx[1] = fx[2];
+        if (Math.abs(h) >= e / 2.) {
             x[2] = x[1] + h;//step5
-            fx[2] = f.calc(x[2]); fk++;
+            fx[2] = f.calc(x[2]);
+            fk++;
+            while (fx[2] <= fx[1]) {//TODO: not working at this place
+                x[0] = x[1];
+                fx[0] = fx[1];
+                x[1] = x[2];
+                fx[1] = fx[2];
+                x[2] = x[1] + h;//step5
+                fx[2] = f.calc(x[2]);
+                fk++;
+            }
         }
 
         if (h < 0) {//swap
@@ -75,10 +69,6 @@ public class Optimization1d {
             fx[0] = fx[2];
             fx[2] = temp;
         }
-
-        /*System.out.println("x0 = " + x[0] + " f(x0) = " + fx[0]);
-        System.out.println("x1 = " + x[1] + " f(x1) = " + fx[1]);
-        System.out.println("x2 = " + x[2] + " f(x2) = " + fx[2]);*/
 
         double[][] r = new double[2][]; r[0] = x; r[1] = fx;
         return r;
@@ -243,7 +233,6 @@ public class Optimization1d {
     }
 
     static double[] parabolas(Function f, double x0, double h, double e) {
-    //static void parabolas(double x0, double a, double b, double e) {
         //System.out.println("\nparabolas(" + x0 + ", " + h + ", " + e + ")");
         k = 0;
         fk = 0;
@@ -252,6 +241,8 @@ public class Optimization1d {
         double[] x = xfx[0];
         double[] fx = xfx[1];
         double x3, fx3;
+
+        if (x[1] == x[2]) return new double[] {x[0], fx[0]};
 
         while (true) {
             double xs = x[1] + (1 / 2.) * (((x[2] - x[1]) * (x[2] - x[1]) * (fx[0] - fx[1]) - (x[1] - x[0]) * (x[1] - x[0]) * (fx[2] - fx[1]))

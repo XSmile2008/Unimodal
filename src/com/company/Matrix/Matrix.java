@@ -1,4 +1,4 @@
-package com.company.Matrix;
+package com.company.matrix;
 
 import java.util.Arrays;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class Matrix {
 
-    public static void invert(double A[][]) throws IncompatibleSizesExeption {//not my
+    public static void invert(double A[][]) throws IncompatibleSizesException {//not my
         int n = A.length;
         int row[] = new int[n];
         int col[] = new int[n];
@@ -15,7 +15,7 @@ public class Matrix {
         int hold, I_pivot, J_pivot;
         double pivot, abs_pivot;
 
-        if (A[0].length != n) throw new IncompatibleSizesExeption();
+        if (A[0].length != n) throw new IncompatibleSizesException();
         // установиим row и column как вектор изменений.
         for (int k = 0; k < n; k++) {
             row[k] = k;
@@ -38,7 +38,7 @@ public class Matrix {
                 }
             }
             if (Math.abs(pivot) < 1.0E-10) {
-                System.out.println("Matrix is singular !");
+                System.out.println("matrix is singular !");
                 return;
             }
             //перестановка к-ой строки и к-ого столбца с стобцом и строкой, содержащий основной элемент(pivot основу)
@@ -90,7 +90,7 @@ public class Matrix {
         }
     }
 
-    public static double determinant(double A[][]) throws IncompatibleSizesExeption {
+    public static double determinant(double A[][]) throws IncompatibleSizesException {
         int n = A.length;
         double D = 1.0;                 // определитель
         double B[][] = new double[n][n];  // рабочая матрица
@@ -99,7 +99,7 @@ public class Matrix {
         double pivot;
         double abs_pivot;
 
-        if (A[0].length != n) throw new IncompatibleSizesExeption();
+        if (A[0].length != n) throw new IncompatibleSizesException();
         // создаем рабочую матрицу
         for (int i = 0; i < n; i++)
             B[i] = Arrays.copyOf(A[i], n);
@@ -151,8 +151,8 @@ public class Matrix {
         return D * B[row[n - 1]][n - 1];
     }
 
-    public static double[][] add(double A[][], double B[][]) throws IncompatibleSizesExeption {
-        if (B.length != A.length || B[0].length != A[0].length) throw new IncompatibleSizesExeption();
+    public static double[][] add(double A[][], double B[][]) throws IncompatibleSizesException {
+        if (B.length != A.length || B[0].length != A[0].length) throw new IncompatibleSizesException();
         double[][] C = new double[A.length][A[0].length];
         for (int i = 0; i < A.length; i++)
             for (int j = 0; j < A[0].length; j++)
@@ -160,8 +160,8 @@ public class Matrix {
         return C;
     }
 
-    public static double[][] subtract(double A[][], double B[][]) throws IncompatibleSizesExeption {
-        if (B.length != A.length || B[0].length != A[0].length) throw new IncompatibleSizesExeption();
+    public static double[][] subtract(double A[][], double B[][]) throws IncompatibleSizesException {
+        if (B.length != A.length || B[0].length != A[0].length) throw new IncompatibleSizesException();
         double[][] C = new double[A.length][A[0].length];
         for (int i = 0; i < A.length; i++)
             for (int j = 0; j < A[0].length; j++)
@@ -177,8 +177,8 @@ public class Matrix {
         return C;
     }
 
-    public static double[][] multiply(final double A[][], final double B[][]) throws IncompatibleSizesExeption{
-        if (B.length != A[0].length) throw new IncompatibleSizesExeption();
+    public static double[][] multiply(final double A[][], final double B[][]) throws IncompatibleSizesException {
+        if (B.length != A[0].length) throw new IncompatibleSizesException();
         double C[][] = new double[A.length][B[0].length];
         for (int i = 0; i < A.length; i++)
             for (int j = 0; j < B.length; j++)
@@ -187,8 +187,8 @@ public class Matrix {
         return C;
     }
 
-    public static boolean equals(double A[][], double B[][]) throws IncompatibleSizesExeption {
-        if (B.length != A.length || B[0].length != A[0].length) throw new IncompatibleSizesExeption();
+    public static boolean equals(double A[][], double B[][]) throws IncompatibleSizesException {
+        if (B.length != A.length || B[0].length != A[0].length) throw new IncompatibleSizesException();
         for (int i = 0; i < A.length; i++)
             for (int j = 0; j < A[0].length; j++)
                 if (A[i][j] != B[i][j]) return false;
@@ -206,10 +206,10 @@ public class Matrix {
         return stringBuilder.toString();
     }
 
-    /*public static void main(String[] args) throws IncompatibleSizesExeption {
+    /*public static void main(String[] args) throws IncompatibleSizesException {
         double[][] A = new double[][]{{1, 2}, {3, 4}};
         double[][] B = new double[][]{{1, 2}, {3, 4}};
-        Matrix.invert(B);
-        System.out.println(Matrix.toString(Matrix.multiply(A, B)));
+        matrix.invert(B);
+        System.out.println(matrix.toString(matrix.multiply(A, B)));
     }*/
 }

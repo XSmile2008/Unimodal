@@ -1,28 +1,28 @@
-package com.company.Matrix;
+package com.company.matrix;
 
 /**
  * Created by vladstarikov on 27.10.15.
  */
 public class Vector {
 
-    public static double[] add(double A[], double B[]) throws IncompatibleSizesExeption {
-        if (B.length != A.length) throw new IncompatibleSizesExeption();
+    public static double[] add(double A[], double B[]) throws IncompatibleSizesException {
+        if (B.length != A.length) throw new IncompatibleSizesException();
         double[] C = new double[A.length];
         for (int i = 0; i < A.length; i++)
                 C[i] = A[i] + B[i];
         return C;
     }
 
-    public static double[] subtract(double A[], double B[]) throws IncompatibleSizesExeption {
-        if (B.length != A.length) throw new IncompatibleSizesExeption();
+    public static double[] substract(double A[], double B[]) throws IncompatibleSizesException {
+        if (B.length != A.length) throw new IncompatibleSizesException();
         double[] C = new double[A.length];
         for (int i = 0; i < A.length; i++)
                 C[i] = A[i] - B[i];
         return C;
     }
 
-    public static boolean equals(double A[], double B[]) throws IncompatibleSizesExeption {
-        if (B.length != A.length) throw new IncompatibleSizesExeption();
+    public static boolean equals(double A[], double B[]) throws IncompatibleSizesException {
+        if (B.length != A.length) throw new IncompatibleSizesException();
         for (int i = 0; i < A.length; i++)
                 if (A[i] != B[i]) return false;
         return true;

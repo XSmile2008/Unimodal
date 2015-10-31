@@ -31,7 +31,7 @@ public class Main {
         System.out.println("http://goo.gl/8epoIA" + " - f''");
         System.out.println("10*x^2 + 4*x*y + y^2 - 2*x + y");
         System.out.println("true min is in (1/3; -7/6) and = -11/12");
-        Function f = x -> 10*x[0]*x[0] + 4*x[0]*x[1] + x[1]*x[1] - 2*x[0] + x[1];
+        Function f = x -> 10 * x[0] * x[0] + 4 * x[0] * x[1] + x[1] * x[1] - 2 * x[0] + x[1];
         Function[] derivatives = {
                 x -> 20*x[0] + 4*x[1] - 2,
                 x -> 4*x[0] + 2*x[1] + 1//TODO: check why it works when 4*x[0] + 2*x[0] + 1
@@ -40,6 +40,12 @@ public class Main {
                 {x -> 20, x -> 4},
                 {x -> 4, x -> 2}
         };
+
+        /*Function f = x -> (x[0]-5)*(x[0]-5) + 4*(x[1]-4)*(x[1]-4);
+        Function[] derivatives = {
+                x -> 2*(x[0]-5),
+                x -> 8*(x[1]-4)
+        };*/
         double[] x0 = {0, 0};
         double e = 0.0001;
         OptimizatonNd.gradientDescent(f, derivatives, x0, e);
