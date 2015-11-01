@@ -111,7 +111,6 @@ public class OptimizatonNd {
         System.out.println("\nclassicNewton(" + f + ", " + fs + ", " + fss + ", " + Arrays.toString(x0) + ", " + e + ")");
         k = 0;
         double[] x = Arrays.copyOf(x0, x0.length);
-        double[] xk1;
         double nx = e;
         while (nx >= e) try {
             k++;
@@ -124,7 +123,7 @@ public class OptimizatonNd {
                     inverted[i][j] = fss[i][j].calc(x);
             Matrix.invert(inverted);
 
-            xk1 = Vector.substract(x, Matrix.multiply(inverted, fsd));
+            double[] xk1 = Vector.substract(x, Matrix.multiply(inverted, fsd));
             nx = Vector.norm(Vector.substract(xk1, x));
             x = xk1;
             System.out.println("\nk = " + k + " -----------------------------------");
@@ -139,12 +138,11 @@ public class OptimizatonNd {
         return r;
     }
 
-    public static void generalizedNewton(Function f, Function[] fs, Function[][] fss, double[] x0, double e) {
+    public static double[][] generalizedNewton(Function f, Function[] fs, Function[][] fss, double[] x0, double e) {
+        System.out.println("\ngeneralizedNewton(" + f + ", " + fs + ", " + fss + ", " + Arrays.toString(x0) + ", " + e + ")");
+        k = 0; fk = 0;
+        double[] x = Arrays.copyOf(x0, x0.length);
         try {
-            System.out.println("\ngeneralizedNewton(" + f + ", " + fs + ", " + fss + ", " + Arrays.toString(x0) + ", " + e + ")");
-            k = 0; fk = 0;
-            double[] x = Arrays.copyOf(x0, x0.length);
-            double[] xk1;
             double [][] inverted = new double[x.length][x.length];
             for (int i = 0; i < x.length; i++)
                 for (int j = 0; j < x.length; j++)
@@ -170,7 +168,7 @@ public class OptimizatonNd {
                 double h = Optimization1d.parabolas(func, 1, 1, e)[0];
                 fk += Optimization1d.fk;
 
-                xk1 = Vector.substract(x, Vector.multiply(p, h));
+                double[] xk1 = Vector.substract(x, Vector.multiply(p, h));
                 nx = Vector.norm(Vector.substract(xk1, x));
                 x = xk1;
                 System.out.println("\nk = " + k + " -----------------------------------");
@@ -181,5 +179,9 @@ public class OptimizatonNd {
         } catch (IncompatibleSizesException incompatibleSizesException) {
             incompatibleSizesException.printStackTrace();
         }
+        double[][] r = new double[2][];//exit
+        r[0] = x;
+        r[1] = new double[]{f.calc(x)};
+        return r;
     }
 }

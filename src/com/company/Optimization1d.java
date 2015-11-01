@@ -254,20 +254,16 @@ public class Optimization1d {
                 //System.out.println("k = " + k + " fk = " + fk);
                 return  new double[] {xs, fxs};
             } else if (xs > x[1]) {
-                //x[3] = x[2];
                 x3 = x[2];
                 x[2] = xs;
 
-                //fx[3] = fx[2];
                 fx3 = fx[2];
                 fx[2] = fxs;
             } else {
-                //x[3] = x[2];
                 x3 = x[2];
                 x[2] = x[1];
                 x[1] = xs;
 
-                //fx[3] = fx[2];
                 fx3 = fx[2];
                 fx[2] = fx[1];
                 fx[1] = fxs;
