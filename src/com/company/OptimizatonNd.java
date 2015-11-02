@@ -15,9 +15,9 @@ public class OptimizatonNd {
     static int fk;
 
     private static double[] gradient(double[] x, Function[] fs) {//-gradient
-        double[] ug = new double[fs.length];
-        for (int i = 0; i < fs.length; i++) ug[i] = fs[i].calc(x);
-        return ug;
+        double[] g = new double[fs.length];
+        for (int i = 0; i < fs.length; i++) g[i] = fs[i].calc(x);
+        return g;
     }
 
     public static double[][] gradientDescent(Function f, Function[] fs, final double[] x0, double e) {
@@ -88,7 +88,7 @@ public class OptimizatonNd {
                     return f.calc(doubles);
                 };
                 double h = Optimization1d.parabolas(func, 0, 1, e)[0];
-                fk += Optimization1d.fk;
+                fk += Optimization1d.fk + 1;
                 double temp = x[j];
                 x[j] = x[j] + h * sign[j] * e;//calc x^(kj + 1)
                 fx = f.calc(x);

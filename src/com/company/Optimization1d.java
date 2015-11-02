@@ -49,7 +49,7 @@ public class Optimization1d {
             x[2] = x[1] + h;//step5
             fx[2] = f.calc(x[2]);
             fk++;
-            while (fx[2] <= fx[1]) {//TODO: not working at this place
+            while (fx[2] <= fx[1]) {
                 x[0] = x[1];
                 fx[0] = fx[1];
                 x[1] = x[2];
@@ -58,24 +58,24 @@ public class Optimization1d {
                 fx[2] = f.calc(x[2]);
                 fk++;
             }
-        }
 
-        if (h < 0) {//swap
-            double temp = x[0];
-            x[0] = x[2];
-            x[2] = temp;
+            if (h < 0) {//swap
+                double temp = x[0];
+                x[0] = x[2];
+                x[2] = temp;
 
-            temp = fx[0];
-            fx[0] = fx[2];
-            fx[2] = temp;
+                temp = fx[0];
+                fx[0] = fx[2];
+                fx[2] = temp;
+            }
         }
 
         double[][] r = new double[2][]; r[0] = x; r[1] = fx;
         return r;
     }
 
-    static double[] dihotomiya(Function f, double a, double b, double e, double d) { // d = e/3
-        System.out.println("\ndihotomiya(" + a + ", " + b + ", " + e + ", " + d + ")");
+    static double[] diсhotomy(Function f, double a, double b, double e, double d) { // d = e/3
+        System.out.println("\ndiсhotomy(" + a + ", " + b + ", " + e + ", " + d + ")");
         k = 0;
         double xs, fs;
         double x1, f1;
@@ -233,9 +233,7 @@ public class Optimization1d {
     }
 
     static double[] parabolas(Function f, double x0, double h, double e) {
-        //System.out.println("\nparabolas(" + x0 + ", " + h + ", " + e + ")");
-        k = 0;
-        fk = 0;
+        k = 0;fk = 0;
 
         double[][] xfx = localization(f, x0, h, e);
         double[] x = xfx[0];
@@ -250,8 +248,9 @@ public class Optimization1d {
             double fxs = f.calc(xs);
             k++; fk++;
             if (Math.abs(xs - x[1]) < e) {
-                //System.out.println("x^* = " + xs + " f(x^*) = " + fxs);
-                //System.out.println("k = " + k + " fk = " + fk);
+                System.out.println("\nparabolas(" + x0 + ", " + h + ", " + e + ")");
+                System.out.println("x^* = " + xs + " f(x^*) = " + fxs);
+                System.out.println("k = " + k + " fk = " + fk);
                 return  new double[] {xs, fxs};
             } else if (xs > x[1]) {
                 x3 = x[2];
@@ -277,7 +276,6 @@ public class Optimization1d {
                 fx[1] = fx[2];
                 fx[2] = fx3;
             }
-
         }
     }
 

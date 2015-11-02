@@ -50,20 +50,15 @@ public class Matrix {
             col[J_pivot] = hold;
             // k-ую строку с учетом перестановок делим на основной элемент
             A[row[k]][col[k]] = 1.0 / pivot;
-            for (int j = 0; j < n; j++) {
-                if (j != k) {
+            for (int j = 0; j < n; j++)
+                if (j != k)
                     A[row[k]][col[j]] = A[row[k]][col[j]] * A[row[k]][col[k]];
-                }
-            }
             // внутренний цикл
             for (int i = 0; i < n; i++) {
                 if (k != i) {
-                    for (int j = 0; j < n; j++) {
-                        if (k != j) {
-                            A[row[i]][col[j]] = A[row[i]][col[j]] - A[row[i]][col[k]] *
-                                    A[row[k]][col[j]];
-                        }
-                    }
+                    for (int j = 0; j < n; j++)
+                        if (k != j)
+                            A[row[i]][col[j]] = A[row[i]][col[j]] - A[row[i]][col[k]] * A[row[k]][col[j]];
                     A[row[i]][col[k]] = -A[row[i]][col[k]] * A[row[k]][col[k]];
                 }
             }
@@ -72,21 +67,17 @@ public class Matrix {
 
         // переставляем назад rows
         for (int j = 0; j < n; j++) {
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < n; i++)
                 temp[col[i]] = A[row[i]][j];
-            }
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < n; i++)
                 A[i][j] = temp[i];
-            }
         }
         // переставляем назад columns
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+            for (int j = 0; j < n; j++)
                 temp[row[j]] = A[i][col[j]];
-            }
-            for (int j = 0; j < n; j++) {
+            for (int j = 0; j < n; j++)
                 A[i][j] = temp[j];
-            }
         }
     }
 
