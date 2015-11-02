@@ -248,9 +248,9 @@ public class Optimization1d {
             double fxs = f.calc(xs);
             k++; fk++;
             if (Math.abs(xs - x[1]) < e) {
-                System.out.println("\nparabolas(" + x0 + ", " + h + ", " + e + ")");
-                System.out.println("x^* = " + xs + " f(x^*) = " + fxs);
-                System.out.println("k = " + k + " fk = " + fk);
+                //System.out.println("\nparabolas(" + x0 + ", " + h + ", " + e + ")");
+                //System.out.println("x^* = " + xs + " f(x^*) = " + fxs);
+                //System.out.println("k = " + k + " fk = " + fk);
                 return  new double[] {xs, fxs};
             } else if (xs > x[1]) {
                 x3 = x[2];
