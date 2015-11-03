@@ -41,11 +41,11 @@ public class Optimization1d {
                     h = -h;
                     x[1] = X;
                     fx[1] = fX;
-                } else h /= 2;//step4
+                } else h /= 2.;//step4
             }
         } while (fX > fx[0] && Math.abs(h) >= e / 2.);
 
-        if (Math.abs(h) >= e / 2.) {
+        //if (Math.abs(h) >= e / 2.) {
             x[2] = x[1] + h;//step5
             fx[2] = f.calc(x[2]);
             fk++;
@@ -68,13 +68,12 @@ public class Optimization1d {
                 fx[0] = fx[2];
                 fx[2] = temp;
             }
-        }
+        //}
 
-        double[][] r = new double[2][]; r[0] = x; r[1] = fx;
-        return r;
+        return new double[][] {x, fx};
     }
 
-    static double[] diсhotomy(Function f, double a, double b, double e, double d) { // d = e/3
+    static double[] dichotomy(Function f, double a, double b, double e, double d) { // d = e/3
         System.out.println("\ndiсhotomy(" + a + ", " + b + ", " + e + ", " + d + ")");
         k = 0;
         double xs, fs;
@@ -240,7 +239,7 @@ public class Optimization1d {
         double[] fx = xfx[1];
         double x3, fx3;
 
-        if (x[1] == x[2]) return new double[] {x[0], fx[0]};
+        if (x[1] == x[2] || x[0] == x[1] || x[0] == x[2]) return new double[] {x[0], fx[0]};
 
         while (true) {
             double xs = x[1] + (1 / 2.) * (((x[2] - x[1]) * (x[2] - x[1]) * (fx[0] - fx[1]) - (x[1] - x[0]) * (x[1] - x[0]) * (fx[2] - fx[1]))

@@ -45,7 +45,7 @@ public class OptimizatonNd {
                     return 0;
                 }
             };
-            double h = Optimization1d.parabolas(func, 0, 1, e)[0];
+            double h = Optimization1d.parabolas(func, 0, 1, e)[0];//TODO: check h
             fk += Optimization1d.fk;
 
             double[] xk1 = Vector.substract(x, Vector.multiply(g, h));
@@ -87,12 +87,14 @@ public class OptimizatonNd {
                     doubles[fj] = x[fj] + hj[0] * sign[fj] * e;
                     return f.calc(doubles);
                 };
-                double h = Optimization1d.parabolas(func, 0, 1, e)[0];
+                //double h = Optimization1d.parabolas(func, 0, 1, e)[0];//TODO: check h
+                double h = Optimization1d.parabolas(func, 0, 1./e, e)[0];
                 fk += Optimization1d.fk + 1;
                 double temp = x[j];
                 x[j] = x[j] + h * sign[j] * e;//calc x^(kj + 1)
                 fx = f.calc(x);
                 delta[j] = x[j] - temp;//calc x^(kj + 1) - x^(kj), that we will use in norm(delta)
+                //System.err.println(h);//TODO: remove
             }
             nx = Vector.norm(delta);
             System.out.println("\nk = " + k + " -----------------------------------");
@@ -128,6 +130,7 @@ public class OptimizatonNd {
             x = xk1;
             System.out.println("\nk = " + k + " -----------------------------------");
             System.out.println("f(x^k = )" + f.calc(x));
+            System.out.println("x = " + Arrays.toString(x));
             System.out.println("norm(x^(k+1) - x^k) = " + nx);
         } catch (IncompatibleSizesException incompatibleSizesException) {
             incompatibleSizesException.printStackTrace();
@@ -174,6 +177,7 @@ public class OptimizatonNd {
                 System.out.println("\nk = " + k + " -----------------------------------");
                 System.out.println("fk = " + fk);
                 System.out.println("f(x^k = )" + f.calc(x));
+                System.out.println("x = " + Arrays.toString(x));
                 System.out.println("norm(x^(k+1) - x^k) = " + nx);
             }
         } catch (IncompatibleSizesException incompatibleSizesException) {
