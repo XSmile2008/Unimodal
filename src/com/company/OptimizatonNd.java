@@ -25,6 +25,7 @@ public class OptimizatonNd {
         k = 0; fk = 0;
         double[] x = Arrays.copyOf(x0, x0.length);
         double nx = e;//norm(x^(k+1) - x^k)
+        double h = 1;
         while (true) try {
             k++;
 
@@ -37,15 +38,15 @@ public class OptimizatonNd {
             }
 
             final double[] finx = x;
-            Function func = h -> {
+            Function func = hh -> {
                 try {
-                    return f.calc(Vector.substract(finx, Vector.multiply(g, h[0])));
+                    return f.calc(Vector.substract(finx, Vector.multiply(g, hh[0])));
                 } catch (IncompatibleSizesException exception) {
                     exception.printStackTrace();
                     return 0;
                 }
             };
-            double h = Optimization1d.parabolas(func, 0, 1, e)[0];//TODO: check h
+            h = Optimization1d.parabolas(func, 0, h, e)[0];//TODO: check h
             fk += Optimization1d.fk;
 
             double[] xk1 = Vector.substract(x, Vector.multiply(g, h));
@@ -75,26 +76,25 @@ public class OptimizatonNd {
         double[] delta = new double[x.length];
         while (nx >= e) {//external step x^(k_)
             k++;
+            double[] h = new double[x.length]; for (int i = 0; i < x.length; i++) h[i] = 1;
             for (int j = 0; j < x.length; j++) {//internal step for all x^(kj)
                 final int fj = j;
 
                 double[] args = Arrays.copyOf(x, x.length);//check sign[j]
                 args[j] = x[j] + sign[j] * e;
-                if (f.calc(args) > fx) sign[fj] *= -1;//if wrong way reverse
+                if (f.calc(args) > fx) sign[fj] *= -1;//if wrong way reverse//TODO
 
                 Function func = hj -> {
                     double[] doubles = Arrays.copyOf(x, x.length);
-                    doubles[fj] = x[fj] + hj[0] * sign[fj] * e;
+                    doubles[fj] = x[fj] + hj[0] * sign[fj];
                     return f.calc(doubles);
                 };
-                //double h = Optimization1d.parabolas(func, 0, 1, e)[0];//TODO: check h
-                double h = Optimization1d.parabolas(func, 0, 1./e, e)[0];
+                h[j] = Optimization1d.parabolas(func, 0, h[j], e)[0];//TODO: check h
                 fk += Optimization1d.fk + 1;
                 double temp = x[j];
-                x[j] = x[j] + h * sign[j] * e;//calc x^(kj + 1)
+                x[j] = x[j] + h[j] * sign[j];//calc x^(kj + 1)
                 fx = f.calc(x);
                 delta[j] = x[j] - temp;//calc x^(kj + 1) - x^(kj), that we will use in norm(delta)
-                //System.err.println(h);//TODO: remove
             }
             nx = Vector.norm(delta);
             System.out.println("\nk = " + k + " -----------------------------------");
@@ -152,6 +152,7 @@ public class OptimizatonNd {
                     inverted[i][j] = fss[i][j].calc(x);
             Matrix.invert(inverted);
 
+            double h = 1;
             double nx = e;
             while (nx >= e) {
                 k++;
@@ -160,15 +161,15 @@ public class OptimizatonNd {
                 double[] p = Matrix.multiply(inverted, fsd);
 
                 final double[] finx = x;
-                Function func = h -> {
+                Function func = hh -> {
                     try {
-                        return f.calc(Vector.substract(finx, Vector.multiply(p, h[0])));
+                        return f.calc(Vector.substract(finx, Vector.multiply(p, hh[0])));
                     } catch (IncompatibleSizesException incompatibleSizesExeption) {
                         incompatibleSizesExeption.printStackTrace();
                         return 0;
                     }
                 };
-                double h = Optimization1d.parabolas(func, 1, 1, e)[0];
+                h = Optimization1d.parabolas(func, 0, h, e)[0];//TODO
                 fk += Optimization1d.fk;
 
                 double[] xk1 = Vector.substract(x, Vector.multiply(p, h));

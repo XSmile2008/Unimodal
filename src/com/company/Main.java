@@ -17,7 +17,7 @@ public class Main {
         Function f = x -> 3 * x[0] * x[0] * x[0] * x[0] + 5 * x[0] * x[0] * x[0] - 10 * x[0] * x[0] + 6 * x[0];
         double a = -4;
         double b = 2;
-        double e = 1.0E-04;
+        double e = 1.0E-08;
         double h = (a+b)/2.;
         Optimization1d.localization(f, a, h, e);
         Optimization1d.dichotomy(f, a, b, e, e / 3.);
@@ -50,11 +50,11 @@ public class Main {
                 x -> 8*(x[1]-4)
         };*/
         double[] x0 = {0, 0};
-        double e = 1.0E-04;
+        double e = 1.0E-08;
         OptimizatonNd.gradientDescent(f, derivatives, x0, e);
         OptimizatonNd.Gauss_Seidel(f, x0, e);
-        OptimizatonNd.classicNewton(f, derivatives, derivatives2, x0, e);
-        OptimizatonNd.generalizedNewton(f, derivatives, derivatives2, x0, e);
+        //OptimizatonNd.classicNewton(f, derivatives, derivatives2, x0, e);
+        //OptimizatonNd.generalizedNewton(f, derivatives, derivatives2, x0, e);
     }
 
     private static void optimizationNd2() {
@@ -74,9 +74,9 @@ public class Main {
         };
 
         double[] x0 = {2, 2};
-        double e = 1.0E-04;
-        OptimizatonNd.gradientDescent(f, derivatives, x0, e);
-        OptimizatonNd.Gauss_Seidel(f, x0, e);
+        double e = 1.0E-08;
+        //OptimizatonNd.gradientDescent(f, derivatives, x0, e);
+        //OptimizatonNd.Gauss_Seidel(f, x0, e);
         OptimizatonNd.classicNewton(f, derivatives, derivatives2, x0, e);
         OptimizatonNd.generalizedNewton(f, derivatives, derivatives2, x0, e);
     }
@@ -91,7 +91,7 @@ public class Main {
                 x -> 200*(x[1] * x[0] * x[0])
         };
         double[] x0 = {0, 0};
-        double e = 1.0E-04;
+        double e = 1.0E-08;
         OptimizatonNd.gradientDescent(f, derivatives, x0, e);
         OptimizatonNd.Gauss_Seidel(f, x0, e);
     }
