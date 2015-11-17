@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ccb741fc-cb66-4058-a29d-345440d73a89" name="Default" comment="Add sixth lab">
+    <list default="true" id="ccb741fc-cb66-4058-a29d-345440d73a89" name="Default" comment="just commit">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Unimodal/com/company/Main.class" afterPath="$PROJECT_DIR$/out/production/Unimodal/com/company/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Global1d.java" afterPath="$PROJECT_DIR$/src/com/company/Global1d.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
     </list>
     <ignored path="Unimodal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,11 +44,9 @@
       <file leaf-file-name="Global1d.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Global1d.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5025126">
-              <caret line="80" column="85" selection-start-line="80" selection-start-column="85" selection-end-line="80" selection-end-column="85" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.8291457">
+              <caret line="90" column="69" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="69" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,8 +80,8 @@
         <option value="$PROJECT_DIR$/src/com/company/OptimizatonNd.java" />
         <option value="$PROJECT_DIR$/src/com/company/Optimization1d.java" />
         <option value="$PROJECT_DIR$/src/com/company/Global.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Global1d.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Global1d.java" />
       </list>
     </option>
   </component>
@@ -694,7 +690,7 @@
       <workItem from="1446629799225" duration="6802000" />
       <workItem from="1447703476943" duration="4359000" />
       <workItem from="1447787473276" duration="5642000" />
-      <workItem from="1447800544053" duration="2111000" />
+      <workItem from="1447800544053" duration="2175000" />
     </task>
     <task id="LOCAL-00001" summary="various fixes">
       <created>1445027011230</created>
@@ -768,11 +764,17 @@
       <option name="project" value="LOCAL" />
       <updated>1447794958374</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="just commit">
+      <created>1447803250178</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1447803250178</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180829000" />
+    <option name="totallyTimeSpent" value="180893000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -830,9 +832,9 @@
     <MESSAGE value="various fixes" />
     <MESSAGE value="add Gauss_Seidel mothod" />
     <MESSAGE value="finisg Gauss_Seidel()" />
-    <MESSAGE value="just commit" />
     <MESSAGE value="Add sixth lab" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add sixth lab" />
+    <MESSAGE value="just commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="just commit" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -846,7 +848,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/Global1d.java</url>
-          <line>72</line>
+          <line>69</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
@@ -1483,11 +1485,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Global1d.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5025126">
-          <caret line="80" column="85" selection-start-line="80" selection-start-column="85" selection-end-line="80" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.8291457">
+          <caret line="90" column="69" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>
