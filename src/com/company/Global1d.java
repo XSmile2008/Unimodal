@@ -24,7 +24,8 @@ public class Global1d {
                 min_fx = fx;
             }
         }
-        System.out.println(k);
+        System.out.println("h = " + h);
+        System.out.println("k = " + k);
         return new double[] {min_x, min_fx};
     }
 
@@ -45,7 +46,8 @@ public class Global1d {
                 min_fx = fx;
             }
         }
-        System.out.println(k);
+        System.out.println("h = " + h);
+        System.out.println("k = " + k);
         return new double[] {min_x, min_fx};
     }
 
@@ -62,15 +64,26 @@ public class Global1d {
         return max;
     }
 
-    public static double[] Piyavskogo(Function f, Function fs, double a, double b, double e) {
+    public static void Piyavskogo(Function f, Function fs, double a, double b, double e) {
         double L = Global1d.sup(fs, a, b, e);
 
-        Function minorant = x -> {
-            double fsy = fs.calc(x[1]);
-            return f.calc(x[1]) + 1/(2*L) * fsy*fsy - L/2 * (x[0] - x[1] - fsy/L);
-        };
+        double x0 = (a + b) / 2.;
+        double xi = x0;
 
-        return null;
+        //Function minorant = x -> f.calc(x[1]) - L * Math.abs(x[0] - x[1]);
+        do {
+            final double y = xi;
+            Function pi = x -> {
+                double fsy = fs.calc(y);
+                return f.calc(y) + 1 / (2 * L) * fsy * fsy - L / 2 * (x[0] - y - fsy / L);
+            };
+
+            double x1 = pi.calc(a) < pi.calc(b) ? a : b;
+            double fxi = f.calc(xi);
+            double fx1 = f.calc(x1);
+            xi = x1;
+        } while (true);
+        //return null;
     }
 
     private static double minorant(Function f, Function fs, double L, double x, double y) {

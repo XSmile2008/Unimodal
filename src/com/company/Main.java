@@ -117,6 +117,10 @@ public class Main {
         System.out.println("\nbruteForceM(" + f + ", " + fs + ", " + a + ", " + b + ", " + e);
         xfx = Global1d.bruteForce(f, fs, a, b, e);
         System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
+
+        System.out.println("\nPiyavskogo(" + f + ", " + fs + ", " + a + ", " + b + ", " + e);
+        Global1d.Piyavskogo(f, fs, a, b, e);
+        //System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
     }
 
 }
