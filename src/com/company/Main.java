@@ -5,8 +5,9 @@ public class Main {
     public static void main(String[] args) {
         //optimization1d();
         //optimizationNd1();
-        optimizationNd2();
+        //optimizationNd2();
         //rozenbrok();
+        global1d();
     }
 
     private static void optimization1d() {
@@ -94,6 +95,28 @@ public class Main {
         double e = 1.0E-08;
         OptimizatonNd.gradientDescent(f, derivatives, x0, e);
         OptimizatonNd.Gauss_Seidel(f, x0, e);
+    }
+
+    private static void global1d() {
+        System.out.println("https://goo.gl/bGAAks" + " - function minimization");
+        System.out.println("https://goo.gl/eYwOsI" + " - f'");
+        System.out.println("https://goo.gl/K1js6h" + " - sup(f')");//L
+        System.out.println("cos(4*x)/x^2");
+
+        double a = 2;
+        double b = 6;
+        double e = 1.0E-04;
+
+        Function f = x -> Math.cos(4 * x[0]) / (x[0] * x[0]);
+        Function fs = x -> -(4 * x[0] * Math.sin(4 * x[0]) + 2 * Math.cos(4 * x[0]))/Math.pow(x[0], 3);
+
+        System.out.println("\nbruteForce(" + f + ", " + fs + ", " + a + ", " + b + ", " + e);
+        double[] xfx = Global1d.bruteForce(f, fs, a, b, e);
+        System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
+
+        System.out.println("\nbruteForceM(" + f + ", " + fs + ", " + a + ", " + b + ", " + e);
+        xfx = Global1d.bruteForce(f, fs, a, b, e);
+        System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
     }
 
 }

@@ -5,8 +5,7 @@ package com.company;
  */
 public class Optimization1d {
 
-    static public int k;
-    static public int fk;
+    static public int k, fk;
 
     static int fibonacci(int n) {
         int f_2 = 1;

@@ -11,8 +11,7 @@ import java.util.Arrays;
  */
 public class OptimizatonNd {
 
-    static int k;
-    static int fk;
+    static int k, fk;
 
     private static double[] gradient(double[] x, Function[] fs) {//-gradient
         double[] g = new double[fs.length];
