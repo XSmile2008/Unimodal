@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ccb741fc-cb66-4058-a29d-345440d73a89" name="Default" comment="just commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/Global1d.java" />
+    <list default="true" id="ccb741fc-cb66-4058-a29d-345440d73a89" name="Default" comment="Add sixth lab">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Unimodal/com/company/Main.class" afterPath="$PROJECT_DIR$/out/production/Unimodal/com/company/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Unimodal/com/company/Optimization1d.class" afterPath="$PROJECT_DIR$/out/production/Unimodal/com/company/Optimization1d.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Unimodal/com/company/OptimizatonNd.class" afterPath="$PROJECT_DIR$/out/production/Unimodal/com/company/OptimizatonNd.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Optimization1d.java" afterPath="$PROJECT_DIR$/src/com/company/Optimization1d.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/OptimizatonNd.java" afterPath="$PROJECT_DIR$/src/com/company/OptimizatonNd.java" />
     </list>
     <ignored path="Unimodal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,8 +31,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5651731">
-              <caret line="116" column="59" selection-start-line="116" selection-start-column="59" selection-end-line="116" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.48879838">
+              <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
               <folding>
                 <element signature="method#optimization1d#0;class#Main#0" expanded="false" />
                 <element signature="method#optimizationNd1#0;class#Main#0" expanded="false" />
@@ -696,7 +691,7 @@
       <workItem from="1446577140684" duration="8945000" />
       <workItem from="1446629799225" duration="6802000" />
       <workItem from="1447703476943" duration="4359000" />
-      <workItem from="1447787473276" duration="3387000" />
+      <workItem from="1447787473276" duration="3411000" />
     </task>
     <task id="LOCAL-00001" summary="various fixes">
       <created>1445027011230</created>
@@ -758,11 +753,17 @@
       <option name="project" value="LOCAL" />
       <updated>1446640387111</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add sixth lab">
+      <created>1447794951560</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1447794951560</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176463000" />
+    <option name="totallyTimeSpent" value="176487000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -812,7 +813,8 @@
     <MESSAGE value="add Gauss_Seidel mothod" />
     <MESSAGE value="finisg Gauss_Seidel()" />
     <MESSAGE value="just commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="just commit" />
+    <MESSAGE value="Add sixth lab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add sixth lab" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1452,8 +1454,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5651731">
-          <caret line="116" column="59" selection-start-line="116" selection-start-column="59" selection-end-line="116" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.48879838">
+          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
           <folding>
             <element signature="method#optimization1d#0;class#Main#0" expanded="false" />
             <element signature="method#optimizationNd1#0;class#Main#0" expanded="false" />
