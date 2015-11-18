@@ -121,8 +121,10 @@ public class Main {
         xfx = Global1d.bruteForce(f, L, a, b, e);
         System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
 
-        System.out.println("\nPiyavskogo(" + f + ", " + fs + ", " + L + ", " + a + ", " + b + ", " + e);
-        Global1d.Piyavskogo(f, fs, L, a, b, e);
+        Function minorant = x -> f.calc(x[1]) - L * Math.abs(x[0] - x[1]);//TODO: move to main
+        Function collision = y -> (y[0]+ y[1] + (f.calc(y[0]) - f.calc(y[1]))/L)/2.;//TODO: check
+        System.out.println("\nPiyavskogo(" + f + ", " + minorant + ", " + collision + ", " + a + ", " + b + ", " + e);
+        Global1d.Piyavskogo(f, minorant, collision, a, b, e);
         //System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
     }
 

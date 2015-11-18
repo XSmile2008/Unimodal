@@ -20,12 +20,12 @@ public class SortedLinkedList<D> extends LinkedList<D> {//TODO: addAll()
         else {
             int index = 0;
             for (D d1 : this) {
-                index++;
                 if (comparator.compare(d, d1) < 0) {
                     super.add(index, d);
                     //this.
                     return true;//TODO: checkReturn
                 }
+                index++;
             }
         }
         return super.add(d);
