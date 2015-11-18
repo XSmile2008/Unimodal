@@ -6,7 +6,7 @@ import java.util.LinkedList;
 /**
  * Created by Admin on 18.11.2015.
  */
-public class SortedLinkedList<D> extends LinkedList<D> {
+public class SortedLinkedList<D> extends LinkedList<D> {//TODO: addAll()
     Comparator<D> comparator;
 
     SortedLinkedList(Comparator<D> comparator){
@@ -21,12 +21,13 @@ public class SortedLinkedList<D> extends LinkedList<D> {
             int index = 0;
             for (D d1 : this) {
                 index++;
-                if (comparator.compare(d, d1) > 0) {
+                if (comparator.compare(d, d1) < 0) {
                     super.add(index, d);
-                    return true;
+                    //this.
+                    return true;//TODO: checkReturn
                 }
             }
         }
-        return true;//TODO: check return
+        return super.add(d);
     }
 }

@@ -2,7 +2,6 @@ package com.company;
 
 import javafx.util.Pair;
 
-import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -70,26 +69,30 @@ public class Global1d {
 
     public static void Piyavskogo(Function f, Function fs, double L, double a, double b, double e) {
         Function minorant = x -> f.calc(x[1]) - L * Math.abs(x[0] - x[1]);//TODO: move to main
-        Function collision = y -> (f.calc(y[0]) - f.calc(y[1]) + L*y[0] + L*y[1])/2*L;
+        Function collision = y -> (f.calc(y[0]) - f.calc(y[1]) + L*y[0] + L*y[1])/2*L;//TODO: check
 
-        List<Double> x = new LinkedList<>();
+        List<Double> x = new SortedLinkedList<>((o1, o2) -> (int) Math.signum(o1 - o2));
         x.add(a);
         x.add((a + b) / 2);
         x.add(b);
 
-        Comparator<Pair<Double, Double>> comparator = (o1, o2) -> (int) Math.signum(o1.getValue() - o2.getValue());
-        List<Pair<Double, Double>> z = new SortedLinkedList<>(comparator);
+        LinkedList<Pair<Double, Double>> z = new SortedLinkedList<>((o1, o2) -> (int) Math.signum(o1.getValue() - o2.getValue()));
         double tz = collision.calc(x.get(0), x.get(1));
         z.add(new Pair<>(tz, f.calc(tz)));
         tz = collision.calc(x.get(1), x.get(2));
         z.add(new Pair<>(tz, f.calc(tz)));
 
+        Double newX;
+        do {
+            newX = z.pop().getKey();
+            x.add(newX);
+            tz = collision.calc(newX, x.get(x.indexOf(newX) - 1));
+            z.add(new Pair<>(tz, f.calc(tz)));
+            tz = collision.calc(newX, x.get(x.indexOf(newX) + 1));
+            z.add(new Pair<>(tz, f.calc(tz)));
+            System.out.println("nyan");
+        } while (x.get(x.indexOf(newX)) - newX > e);
+        System.out.println(x);
         System.out.println(z);
     }
-
-    /*final double y = xi;
-    Function pi = x -> {
-        double fsy = fs.calc(y);
-        return f.calc(y) + 1 / (2 * L) * fsy * fsy - L / 2 * (x[0] - y - fsy / L);
-    };*/
 }
