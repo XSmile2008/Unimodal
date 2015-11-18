@@ -101,25 +101,28 @@ public class Main {
         System.out.println("https://goo.gl/bGAAks" + " - function minimization");
         System.out.println("https://goo.gl/eYwOsI" + " - f'");
         System.out.println("https://goo.gl/K1js6h" + " - sup(f')");//L
+        System.out.println("https://goo.gl/kdWEVT" + " - minoranta");
+        System.out.println("https://goo.gl/68kfG2" + " - collision");
         System.out.println("cos(4*x)/x^2");
 
         double a = 2;
         double b = 6;
         double e = 1.0E-04;
+        double L = 0.567103;
 
         Function f = x -> Math.cos(4 * x[0]) / (x[0] * x[0]);
         Function fs = x -> -(4 * x[0] * Math.sin(4 * x[0]) + 2 * Math.cos(4 * x[0]))/Math.pow(x[0], 3);
 
-        System.out.println("\nbruteForce(" + f + ", " + fs + ", " + a + ", " + b + ", " + e);
-        double[] xfx = Global1d.bruteForce(f, fs, a, b, e);
+        System.out.println("\nbruteForce(" + f + ", " + L + ", " + a + ", " + b + ", " + e);
+        double[] xfx = Global1d.bruteForce(f, L, a, b, e);
         System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
 
-        System.out.println("\nbruteForceM(" + f + ", " + fs + ", " + a + ", " + b + ", " + e);
-        xfx = Global1d.bruteForce(f, fs, a, b, e);
+        System.out.println("\nbruteForceM(" + f + ", " + L + ", " + a + ", " + b + ", " + e);
+        xfx = Global1d.bruteForce(f, L, a, b, e);
         System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
 
-        System.out.println("\nPiyavskogo(" + f + ", " + fs + ", " + a + ", " + b + ", " + e);
-        Global1d.Piyavskogo(f, fs, a, b, e);
+        System.out.println("\nPiyavskogo(" + f + ", " + fs + ", " + L + ", " + a + ", " + b + ", " + e);
+        Global1d.Piyavskogo(f, fs, L, a, b, e);
         //System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
     }
 

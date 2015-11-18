@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ccb741fc-cb66-4058-a29d-345440d73a89" name="Default" comment="just commit">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Unimodal/com/company/Main.class" afterPath="$PROJECT_DIR$/out/production/Unimodal/com/company/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Unimodal/com/company/OptimizatonNd.class" afterPath="$PROJECT_DIR$/out/production/Unimodal/com/company/OptimizatonNd.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Global1d.java" afterPath="$PROJECT_DIR$/src/com/company/Global1d.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
     </list>
     <ignored path="Unimodal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="122" column="10" selection-start-line="122" selection-start-column="10" selection-end-line="122" selection-end-column="10" />
+              <caret line="104" column="69" selection-start-line="104" selection-start-column="69" selection-end-line="104" selection-end-column="69" />
               <folding>
                 <element signature="method#optimization1d#0;class#Main#0" expanded="false" />
                 <element signature="method#optimizationNd1#0;class#Main#0" expanded="false" />
@@ -41,12 +44,86 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Global1d.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Global1d.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Global1d.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8291457">
-              <caret line="90" column="69" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="69" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="81" column="55" selection-start-line="81" selection-start-column="55" selection-end-line="81" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SortedLinkedList.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/company/SortedLinkedList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3153457">
+              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LinkedList.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/util/LinkedList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="525" column="9" selection-start-line="525" selection-start-column="9" selection-end-line="525" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#39347#0" expanded="false" />
+                <element signature="e#8008#8009#0" expanded="false" />
+                <element signature="e#8036#8037#0" expanded="false" />
+                <element signature="e#8248#8249#0" expanded="false" />
+                <element signature="e#8275#8276#0" expanded="false" />
+                <element signature="e#8748#8749#0" expanded="false" />
+                <element signature="e#8787#8788#0" expanded="false" />
+                <element signature="e#8938#8939#0" expanded="false" />
+                <element signature="e#8965#8966#0" expanded="false" />
+                <element signature="e#11209#11210#0" expanded="false" />
+                <element signature="e#11247#11248#0" expanded="false" />
+                <element signature="e#15878#15879#0" expanded="false" />
+                <element signature="e#15927#15928#0" expanded="false" />
+                <element signature="e#16099#16100#0" expanded="false" />
+                <element signature="e#16149#16150#0" expanded="false" />
+                <element signature="e#16416#16417#0" expanded="false" />
+                <element signature="e#16470#16471#0" expanded="false" />
+                <element signature="e#19921#19922#0" expanded="false" />
+                <element signature="e#19954#19955#0" expanded="false" />
+                <element signature="e#20484#20485#0" expanded="false" />
+                <element signature="e#20520#20521#0" expanded="false" />
+                <element signature="e#20770#20771#0" expanded="false" />
+                <element signature="e#20799#20800#0" expanded="false" />
+                <element signature="e#23214#23215#0" expanded="false" />
+                <element signature="e#23241#23242#0" expanded="false" />
+                <element signature="e#23699#23700#0" expanded="false" />
+                <element signature="e#23735#23736#0" expanded="false" />
+                <element signature="e#24161#24162#0" expanded="false" />
+                <element signature="e#24193#24194#0" expanded="false" />
+                <element signature="e#26756#26757#0" expanded="false" />
+                <element signature="e#26803#26804#0" expanded="false" />
+                <element signature="e#27125#27126#0" expanded="false" />
+                <element signature="e#27169#27170#0" expanded="false" />
+                <element signature="e#27499#27500#0" expanded="false" />
+                <element signature="e#27539#27540#0" expanded="false" />
+                <element signature="e#27577#27578#0" expanded="false" />
+                <element signature="e#27621#27622#0" expanded="false" />
+                <element signature="e#29442#29443#0" expanded="false" />
+                <element signature="e#29489#29490#0" expanded="false" />
+                <element signature="e#29728#29729#0" expanded="false" />
+                <element signature="e#29776#29777#0" expanded="false" />
+                <element signature="e#29802#29803#0" expanded="false" />
+                <element signature="e#29847#29848#0" expanded="false" />
+                <element signature="e#29878#29879#0" expanded="false" />
+                <element signature="e#29914#29915#0" expanded="false" />
+                <element signature="e#36042#36043#0" expanded="false" />
+                <element signature="e#36098#36099#0" expanded="false" />
+                <element signature="e#39243#39244#0" expanded="false" />
+                <element signature="e#39336#39337#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,6 +158,7 @@
         <option value="$PROJECT_DIR$/src/com/company/Optimization1d.java" />
         <option value="$PROJECT_DIR$/src/com/company/Global.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/company/SortedLinkedList.java" />
         <option value="$PROJECT_DIR$/src/com/company/Global1d.java" />
       </list>
     </option>
@@ -98,8 +176,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -126,7 +206,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -163,45 +242,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unimodal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Unimodal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="company" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="matrix" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FullScreen" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Захист інформації/Лабораторна робота №4/password_2" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Programs/Git/bin/git.exe" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="260" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -690,7 +747,9 @@
       <workItem from="1446629799225" duration="6802000" />
       <workItem from="1447703476943" duration="4359000" />
       <workItem from="1447787473276" duration="5642000" />
-      <workItem from="1447800544053" duration="2175000" />
+      <workItem from="1447800544053" duration="2194000" />
+      <workItem from="1447839042272" duration="7317000" />
+      <workItem from="1447852930194" duration="1700000" />
     </task>
     <task id="LOCAL-00001" summary="various fixes">
       <created>1445027011230</created>
@@ -770,11 +829,17 @@
       <option name="project" value="LOCAL" />
       <updated>1447803250178</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="just commit">
+      <created>1447803306058</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1447803306058</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180893000" />
+    <option name="totallyTimeSpent" value="189929000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -786,7 +851,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -796,16 +861,16 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5025" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.319802" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6669893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32475248" sideWeight="0.4975" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66505635" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3236715" sideWeight="0.4975" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.146875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15128593" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39496613" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39285713" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -846,14 +911,8 @@
           <properties />
           <option name="timeStamp" value="39" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/Global1d.java</url>
-          <line>69</line>
-          <properties />
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="50" />
+      <option name="time" value="52" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -862,34 +921,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/OptimizatonNd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-          <folding>
-            <element signature="method#optimization1d#0;class#Main#0" expanded="false" />
-            <element signature="method#optimizationNd1#0;class#Main#0" expanded="false" />
-            <element signature="method#optimizationNd2#0;class#Main#0" expanded="false" />
-            <element signature="method#rozenbrok#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Optimization1d.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1436,11 +1467,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/matrix/Matrix.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Matrix/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.015274949">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1473,7 +1503,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="122" column="10" selection-start-line="122" selection-start-column="10" selection-end-line="122" selection-end-column="10" />
+          <caret line="104" column="69" selection-start-line="104" selection-start-column="69" selection-end-line="104" selection-end-column="69" />
           <folding>
             <element signature="method#optimization1d#0;class#Main#0" expanded="false" />
             <element signature="method#optimizationNd1#0;class#Main#0" expanded="false" />
@@ -1483,11 +1513,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/util/LinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="525" column="9" selection-start-line="525" selection-start-column="9" selection-end-line="525" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#39347#0" expanded="false" />
+            <element signature="e#8008#8009#0" expanded="false" />
+            <element signature="e#8036#8037#0" expanded="false" />
+            <element signature="e#8248#8249#0" expanded="false" />
+            <element signature="e#8275#8276#0" expanded="false" />
+            <element signature="e#8748#8749#0" expanded="false" />
+            <element signature="e#8787#8788#0" expanded="false" />
+            <element signature="e#8938#8939#0" expanded="false" />
+            <element signature="e#8965#8966#0" expanded="false" />
+            <element signature="e#11209#11210#0" expanded="false" />
+            <element signature="e#11247#11248#0" expanded="false" />
+            <element signature="e#15878#15879#0" expanded="false" />
+            <element signature="e#15927#15928#0" expanded="false" />
+            <element signature="e#16099#16100#0" expanded="false" />
+            <element signature="e#16149#16150#0" expanded="false" />
+            <element signature="e#16416#16417#0" expanded="false" />
+            <element signature="e#16470#16471#0" expanded="false" />
+            <element signature="e#19921#19922#0" expanded="false" />
+            <element signature="e#19954#19955#0" expanded="false" />
+            <element signature="e#20484#20485#0" expanded="false" />
+            <element signature="e#20520#20521#0" expanded="false" />
+            <element signature="e#20770#20771#0" expanded="false" />
+            <element signature="e#20799#20800#0" expanded="false" />
+            <element signature="e#23214#23215#0" expanded="false" />
+            <element signature="e#23241#23242#0" expanded="false" />
+            <element signature="e#23699#23700#0" expanded="false" />
+            <element signature="e#23735#23736#0" expanded="false" />
+            <element signature="e#24161#24162#0" expanded="false" />
+            <element signature="e#24193#24194#0" expanded="false" />
+            <element signature="e#26756#26757#0" expanded="false" />
+            <element signature="e#26803#26804#0" expanded="false" />
+            <element signature="e#27125#27126#0" expanded="false" />
+            <element signature="e#27169#27170#0" expanded="false" />
+            <element signature="e#27499#27500#0" expanded="false" />
+            <element signature="e#27539#27540#0" expanded="false" />
+            <element signature="e#27577#27578#0" expanded="false" />
+            <element signature="e#27621#27622#0" expanded="false" />
+            <element signature="e#29442#29443#0" expanded="false" />
+            <element signature="e#29489#29490#0" expanded="false" />
+            <element signature="e#29728#29729#0" expanded="false" />
+            <element signature="e#29776#29777#0" expanded="false" />
+            <element signature="e#29802#29803#0" expanded="false" />
+            <element signature="e#29847#29848#0" expanded="false" />
+            <element signature="e#29878#29879#0" expanded="false" />
+            <element signature="e#29914#29915#0" expanded="false" />
+            <element signature="e#36042#36043#0" expanded="false" />
+            <element signature="e#36098#36099#0" expanded="false" />
+            <element signature="e#39243#39244#0" expanded="false" />
+            <element signature="e#39336#39337#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/util/Comparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02866779">
+          <caret line="108" column="17" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Global1d.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8291457">
-          <caret line="90" column="69" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="69" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="55" selection-start-line="81" selection-start-column="55" selection-end-line="81" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/SortedLinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3153457">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1556,6 +1664,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>commons-math3-3.5</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
