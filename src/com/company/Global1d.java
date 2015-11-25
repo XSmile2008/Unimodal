@@ -68,13 +68,13 @@ public class Global1d {
         x.add((a + b) / 2);
         x.add(b);
 
-        LinkedList<Pair<Double, Double>> z = new SortedLinkedList<>((o1, o2) -> Double.compare(o1.getValue(), o2.getValue()));//Key - z, Value f(z);
+        LinkedList<Pair<Double, Double>> z = new SortedLinkedList<>((o1, o2) -> Double.compare(o1.getValue(), o2.getValue()));//Key - z, Value - f(z);
         double tz = collision.calc(x.get(0), x.get(1));
         z.add(new Pair<>(tz, minorant.calc(tz, x.get(0))));
         tz = collision.calc(x.get(1), x.get(2));
         z.add(new Pair<>(tz, minorant.calc(tz, x.get(1))));
 
-        k = 3; fk = 6;
+        k = 3; fk = 7;
         double newX, neighbor = 0;
         do {
             k++;
@@ -99,6 +99,6 @@ public class Global1d {
         } while (Math.abs(neighbor - newX) > e);
         //System.out.println("x = " + x);
         //System.out.println("z = " + z);
-        return new double[] {newX, f.calc(newX)};
+        return new double[] {newX, f.calc(newX)};//fk++
     }
 }

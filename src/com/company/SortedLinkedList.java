@@ -24,7 +24,7 @@ public class SortedLinkedList<D> extends LinkedList<D> {//TODO: addAll()
         while (iterator.hasNext()) {
             if (comparator.compare(d, iterator.next()) < 0) {
                 iterator.previous();
-                iterator.add(d);
+                iterator.add(d);//back to putted element
                 return true;
             }
         }

@@ -107,26 +107,26 @@ public class Main {
 
         double a = 2;
         double b = 6;
-        double e = 1.0E-08;
+        double e = 1.0E-04;
         double L = 0.567103;
 
         Function f = x -> Math.cos(4 * x[0]) / (x[0] * x[0]);
         Function fs = x -> -(4 * x[0] * Math.sin(4 * x[0]) + 2 * Math.cos(4 * x[0]))/Math.pow(x[0], 3);
 
         double[] xfx;
-        System.out.println("\nbruteForce(" + f + ", " + L + ", " + a + ", " + b + ", " + e);
+        System.out.println("\nbruteForce(" + f + ", " + L + ", " + a + ", " + b + ", " + e + ")");
         xfx = Global1d.bruteForce(f, L, a, b, e);
         System.out.println("k = " + Global1d.k + " f(k) = " + Global1d.fk);
         System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
 
-        System.out.println("\nbruteForceM(" + f + ", " + L + ", " + a + ", " + b + ", " + e);
+        System.out.println("\nbruteForceM(" + f + ", " + L + ", " + a + ", " + b + ", " + e + ")");
         xfx = Global1d.bruteForceM(f, L, a, b, e);
         System.out.println("k = " + Global1d.k + " f(k) = " + Global1d.fk);
         System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
 
         Function minorant = x -> f.calc(x[1]) - L * Math.abs(x[0] - x[1]);//TODO: move to main
         Function collision = y -> (y[0]+ y[1] + (f.calc(y[0]) - f.calc(y[1]))/L)/2.;//TODO: check
-        System.out.println("\nPiyavskogo(" + f + ", " + minorant + ", " + collision + ", " + a + ", " + b + ", " + e);
+        System.out.println("\nPiyavskogo(" + f + ", " + minorant + ", " + collision + ", " + a + ", " + b + ", " + e + ")");
         xfx = Global1d.Piyavskogo(f, minorant, collision, a, b, e);
         System.out.println("k = " + Global1d.k + " f(k) = " + Global1d.fk);
         System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
