@@ -3,7 +3,6 @@ package com.company;
 import javafx.util.Pair;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.ListIterator;
 
 /**
@@ -11,84 +10,95 @@ import java.util.ListIterator;
  */
 public class Global1d {
 
-    static int k, fk;
+    public static int k, fk;
 
     public static double[] bruteForce(Function f, double L, double a, double b, double e) {
-        k = 1;
+        k = 2;
         double h = 2 * e / L;
-        double x = a + h /2;
+        double x = a + h / 2;
         double fx = f.calc(x);
         double min_x = x;
         double min_fx = fx;
-        while (x < b) {
+        while ((x += h) < b) {
             k++;
-            x += h;
             fx = f.calc(x);
             if (fx < min_fx) {
                 min_x = x;
                 min_fx = fx;
             }
         }
-        System.out.println("h = " + h);
-        System.out.println("k = " + k);
+
+        fx = f.calc(b);
+        if (fx < min_fx) {
+            min_x = b;
+            min_fx = fx;
+        }
+        fk = k;
         return new double[] {min_x, min_fx};
     }
 
     public static double[] bruteForceM(Function f, double L, double a, double b, double e) {
-        k = 1;
+        k = 2;
         double h = 2 * e / L;
-        double x = a + h /2;
+        double x = a + h / 2;
         double fx = f.calc(x);
         double min_x = x;
         double min_fx = fx;
-        while (x < b) {
+        while ((x += h + (fx - min_fx)/L) < b) {
             k++;
-            x += h + (fx - min_fx)/L;
             fx = f.calc(x);
             if (fx < min_fx) {
                 min_x = x;
                 min_fx = fx;
             }
         }
-        System.out.println("h = " + h);
-        System.out.println("k = " + k);
+
+        fx = f.calc(b);
+        if (fx < min_fx) {
+            min_x = b;
+            min_fx = fx;
+        }
+        fk = k;
         return new double[] {min_x, min_fx};
     }
 
-    public static void Piyavskogo(Function f, Function minorant, Function collision, double a, double b, double e) {
-        List<Double> x = new SortedLinkedList<>((o1, o2) -> (int) Math.signum(o1 - o2));
+    public static double[] Piyavskogo(Function f, Function minorant, Function collision, double a, double b, double e) {
+        SortedLinkedList<Double> x = new SortedLinkedList<>(Double::compare);
         x.add(a);
         x.add((a + b) / 2);
         x.add(b);
 
-        LinkedList<Pair<Double, Double>> z = new SortedLinkedList<>((o1, o2) -> (int) Math.signum(o1.getValue() - o2.getValue()));
+        LinkedList<Pair<Double, Double>> z = new SortedLinkedList<>((o1, o2) -> Double.compare(o1.getValue(), o2.getValue()));//Key - z, Value f(z);
         double tz = collision.calc(x.get(0), x.get(1));
         z.add(new Pair<>(tz, minorant.calc(tz, x.get(0))));
         tz = collision.calc(x.get(1), x.get(2));
         z.add(new Pair<>(tz, minorant.calc(tz, x.get(1))));
 
-        double newX, prev, next = 0;//TODO: remove prev and next
+        k = 3; fk = 6;
+        double newX, neighbor = 0;
         do {
+            k++;
             newX = z.pop().getKey();
-            x.add(newX);
-            ListIterator<Double> i = x.listIterator(x.indexOf(newX));
+            ListIterator<Double> i = x.addI(newX);
 
             if (i.hasPrevious()) {
-                prev = i.previous();
-                tz = collision.calc(prev, newX);
+                neighbor = i.previous();
+                tz = collision.calc(neighbor, newX);
                 z.add(new Pair<>(tz, minorant.calc(tz, newX)));
+                i.next();//return to newX
+                i.next();
+                fk += 3;
             }
 
-            i.next();
             if (i.hasNext()) {
-                i.next();
-                next = i.next();
-                tz = collision.calc(newX, next);
+                neighbor = i.next();
+                tz = collision.calc(newX, neighbor);
                 z.add(new Pair<>(tz, minorant.calc(tz, newX)));
+                fk += 3;
             }
-        } while (next - newX > e);
-        System.out.println("x = " + newX + "f(x) = " + f.calc(newX));
-        System.out.println(x);
-        System.out.println(z);
+        } while (Math.abs(neighbor - newX) > e);
+        //System.out.println("x = " + x);
+        //System.out.println("z = " + z);
+        return new double[] {newX, f.calc(newX)};
     }
 }

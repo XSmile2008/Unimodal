@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 /**
  * Created by Admin on 18.11.2015.
@@ -14,20 +15,39 @@ public class SortedLinkedList<D> extends LinkedList<D> {//TODO: addAll()
         this.comparator = comparator;
     }
 
+    /**This method put element in LinkedList in to position, that prev element is smallest and next element is largest than putted element.
+     * @param d element
+     * @return true*/
     @Override
     public boolean add(D d) {
-        if (this.isEmpty()) return super.add(d);
-        else {
-            int index = 0;
-            for (D d1 : this) {
-                if (comparator.compare(d, d1) < 0) {
-                    super.add(index, d);
-                    //this.
-                    return true;//TODO: checkReturn
-                }
-                index++;
+        ListIterator<D> iterator = this.listIterator();
+        while (iterator.hasNext()) {
+            if (comparator.compare(d, iterator.next()) < 0) {
+                iterator.previous();
+                iterator.add(d);
+                return true;
             }
         }
-        return super.add(d);
+        iterator.add(d);
+        return true;
+    }
+
+
+    /**This method put element in LinkedList in to position, that prev element is smallest and next element is largest than putted element.
+     * @param d element
+     * @return  a ListIterator of the elements in this list (in proper sequence), starting at position of putted element*/
+    public ListIterator<D> addI(D d) {
+        ListIterator<D> iterator = this.listIterator();
+        while (iterator.hasNext()) {
+            if (comparator.compare(d, iterator.next()) < 0) {
+                iterator.previous();
+                iterator.add(d);
+                iterator.previous();//back to putted element
+                return iterator;
+            }
+        }
+        iterator.add(d);
+        iterator.previous();//back to putted element
+        return iterator;
     }
 }
