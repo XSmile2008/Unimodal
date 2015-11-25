@@ -124,8 +124,14 @@ public class Main {
         System.out.println("k = " + Global1d.k + " f(k) = " + Global1d.fk);
         System.out.println("x = " + xfx[0] + " f(x) = " + xfx[1]);
 
-        Function minorant = x -> f.calc(x[1]) - L * Math.abs(x[0] - x[1]);//TODO: move to main
-        Function collision = y -> (y[0]+ y[1] + (f.calc(y[0]) - f.calc(y[1]))/L)/2.;//TODO: check
+        //Function minorant = x -> f.calc(x[1]) - L * Math.abs(x[0] - x[1]);/**abs*/
+        Function collision = y -> (y[0]+ y[1] + (f.calc(y[0]) - f.calc(y[1]))/L)/2.;/**abs*/
+
+        Function minorant = x -> {
+            double fsy = fs.calc(x[1]);
+            return f.calc(x[1]) + Math.pow(fsy, 2)/(2.*L) - L/2.*Math.pow(x[0] - x[1] - fsy/L, 2);
+        };
+
         System.out.println("\nPiyavskogo(" + f + ", " + minorant + ", " + collision + ", " + a + ", " + b + ", " + e + ")");
         xfx = Global1d.Piyavskogo(f, minorant, collision, a, b, e);
         System.out.println("k = " + Global1d.k + " f(k) = " + Global1d.fk);
